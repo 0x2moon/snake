@@ -1,0 +1,5 @@
+ snode_end->x = snode_end->prev->x - (snh->tam - 1);
+        snode_end->y = snode_end->prev->y;
+        snode_end = snode_end->prev;
+
+      //  faz ela andar na diagonal loucamentee

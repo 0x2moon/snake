@@ -57,14 +57,14 @@ int main()
 
             fruit.setPosition(fruit_struct.x,fruit_struct.y);
             window.draw(fruit);
-    // tentativa de renderizar a cobrinha
-            // struct snake_node *snode = sn_head->head;
-            // do
-            // {   snake.setPosition(snode->x,snode->y);
-            //     window.draw(snake);
-            //     snode = snode->next;
-            // } while (snode->next != NULL);
-            
+            struct snake_node *snode = sn_head->head;
+            snake.setPosition(snode->x,snode->y);
+            window.draw(snake);
+            do
+            {   snake.setPosition(snode->x,snode->y);
+                window.draw(snake);
+                snode = snode->next;
+            } while (snode!= NULL);
             
         window.display(); 
    }

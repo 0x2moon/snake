@@ -36,6 +36,6 @@ void rand_fruit(struct fruit*);
 void __dir_snake(int *);
 void __lim_snake(struct snake_node*);
 void render_snake(struct snake_node *);
-void __coli_fruit(struct fruit *, struct snake_lls *,struct snake_node *);
+void __coli_fruit(struct fruit *,struct snake_lls *,struct snake_node *);
 void mov_snake(struct snake_lls*, struct snake_node*, struct fruit *, int *);
 #endif

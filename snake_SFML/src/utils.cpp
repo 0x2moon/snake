@@ -28,7 +28,7 @@ void create_bodysnake(struct snake_lls *tsn, struct snake_node *snode){
        return;
     }
 
-    if(snode->next = NULL){
+    if(snode->next == NULL){
         snode->next    = create_snake_node();
         snode->next->x = snode->x - 1;
         snode->next->y = snode->y - 1;
@@ -92,13 +92,13 @@ void mov_snake(struct snake_lls *snh, struct snake_node *snode, struct fruit *fr
     __dir_snake(dir);
     __coli_fruit(fruit,snh,snode);
     // tentativa de renderizar os sprites
-    // struct snake_node *snode_end = snh->end;
-    // while(snode_end->prev != NULL)
-    // {   
-    //     snode_end->x = snode_end->prev->x - 1;
-    //     snode_end->y = snode_end->prev->y - 1;
-    //     snode_end = snode_end->prev;
-    // }
+    struct snake_node *snode_end = snh->end;
+    while(snode_end->prev != NULL)
+    {   
+        snode_end->x = snode_end->prev->x - (snh->tam - 1);
+        snode_end->y = snode_end->prev->y - (snh->tam - 1);
+        snode_end = snode_end->prev;
+    }
 
     if (*dir == 2)
     {   
@@ -136,7 +136,9 @@ void rand_fruit(struct fruit* fruit){
 
 void __coli_fruit(struct fruit *fruit, struct snake_lls *snake,struct snake_node *snake_h){
     if((fruit->x == snake_h->x && fruit->y == snake_h->y)){
-        puts("colisão");
+        puts("colisão\n");
+        create_bodysnake(snake,snake_h);
+        // fprintf(stderr, "snake->tam %d \n",snake->tam);
         rand_fruit(fruit);
     }
 }
