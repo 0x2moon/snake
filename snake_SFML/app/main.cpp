@@ -1,10 +1,8 @@
 #include "./../include/utils.hpp"
 using namespace sf;
 
-// struct snake snake_struct;
 struct fruit fruit_struct;
 struct snake_lls *sn_head = create_snake_lls();
-
 int dir = 3;
 
 RenderWindow window(VideoMode(WIDTH,HEIGTH), "Snake Game!");
@@ -19,9 +17,7 @@ int main()
     Sprite snake(_snake);
     Sprite fruit(_fruit);   
     
-
    create_bodysnake(sn_head, sn_head->head);
-   
    rand_fruit(&fruit_struct);
 
    Clock clock;
@@ -57,17 +53,15 @@ int main()
 
             fruit.setPosition(fruit_struct.x,fruit_struct.y);
             window.draw(fruit);
-            struct snake_node *snode = sn_head->head;
-            snake.setPosition(snode->x,snode->y);
-            window.draw(snake);
+
+            struct snake_node *snode_aux = sn_head->head;
             do
-            {   snake.setPosition(snode->x,snode->y);
+            {   snake.setPosition(snode_aux->x,snode_aux->y);
                 window.draw(snake);
-                snode = snode->next;
-            } while (snode!= NULL);
+                snode_aux = snode_aux->next;
+            } while (snode_aux != NULL);
             
         window.display(); 
-   }
-   
+   }  
     return 0;
 }

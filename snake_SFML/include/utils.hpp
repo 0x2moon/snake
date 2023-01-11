@@ -28,14 +28,14 @@ struct snake_node{
     struct snake_node *next;
 };
 
+void rand_fruit(struct fruit*);
+
+void __dir_snake(int *);
+void __lim_snake(struct snake_node*);
+void __coli_fruit(struct fruit *,struct snake_lls *,struct snake_node *);
+
 struct snake_lls *create_snake_lls();
 struct snake_node *create_snake_node();
 void create_bodysnake(struct snake_lls *, struct snake_node *);
-
-void rand_fruit(struct fruit*);
-void __dir_snake(int *);
-void __lim_snake(struct snake_node*);
-void render_snake(struct snake_node *);
-void __coli_fruit(struct fruit *,struct snake_lls *,struct snake_node *);
 void mov_snake(struct snake_lls*, struct snake_node*, struct fruit *, int *);
 #endif
