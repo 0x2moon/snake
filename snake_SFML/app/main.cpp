@@ -9,9 +9,9 @@ RenderWindow window(VideoMode(WIDTH,HEIGTH), "Snake Game!");
 int main()
 {
     Texture _background, _snake, _fruit;
-    _background.loadFromFile("images/white.png");
-    _snake.loadFromFile("images/red.png");
-    _fruit.loadFromFile("images/green.png");
+    _background.loadFromFile("images/bg.png");
+    _snake.loadFromFile("images/snk.png");
+    _fruit.loadFromFile("images/fr.png");
 
     Sprite background(_background);
     Sprite snake(_snake);
